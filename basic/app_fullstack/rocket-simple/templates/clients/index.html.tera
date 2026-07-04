@@ -1,0 +1,36 @@
+{% extends "layouts/application" %}
+
+{% block title %}
+  Clients Table
+{% endblock title %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Clients Table</h1>
+    <hr>
+    <a href="/clients/new" class="btn btn-primary">New</a>
+    <hr>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>CPF</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for client in clients %}
+        <tr>
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.cpf }}</td>
+          <td class="width_30" ><a href="/clients/{{ client.id }}/edit" class="btn btn-warning">Update</a></td>
+          <td class="width_30" ><a href="/clients/{{ client.id }}/delete" onclick="return confirm('Confirm deletion?');" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
+

@@ -1,0 +1,9 @@
+[package]
+name = "mysql"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+mysql = "24.0.0"
+dotenv = "0.15.0"
+model_macro = {path = "./model_macro"}

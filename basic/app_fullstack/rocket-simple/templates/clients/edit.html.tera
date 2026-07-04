@@ -1,0 +1,28 @@
+{% extends "layouts/application" %}
+
+{% block title %}
+  Clients Table
+{% endblock title %}
+
+{% block content %}
+  <!-- https://chat.openai.com/share/228c901f-71c6-43aa-8367-fc202bdf6262 = How I generated the HTML -->
+  <div class="container mt-5">
+    <h1>Edit Client</h1>
+    <form action="/clients/{{ client.id }}/update" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" value="{{ client.name }}" id="name" name="name" placeholder="Type the client's name" required>
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" class="form-control" value="{{ client.cpf }}" id="cpf" name="cpf" placeholder="Type the client's CPF" required>
+      </div>
+      {% if erro != "" %}
+        <div class="alert alert-danger" role="alert">
+            {{ erro }}
+        </div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+{% endblock content %}

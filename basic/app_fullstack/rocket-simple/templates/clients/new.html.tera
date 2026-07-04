@@ -1,0 +1,28 @@
+{% extends "layouts/application" %}
+
+{% block title %}
+  Clients Table
+{% endblock title %}
+
+{% block content %}
+  <!-- https://chat.openai.com/share/228c901f-71c6-43aa-8367-fc202bdf6262 = Como gerei o html -->
+  <div class="container mt-5">
+    <h1>New Client</h1>
+    <form action="/clients/create" method="post">
+      <div class="form-group">
+        <label for="nome">Name:</label>
+        <input type="text" class="form-control" id="nome" name="name" placeholder="Type the client's name" required>
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Type the client's CPF" required>
+      </div>
+      {% if erro != "" %}
+        <div class="alert alert-danger" role="alert">
+            {{ erro }}
+        </div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+{% endblock content %}
