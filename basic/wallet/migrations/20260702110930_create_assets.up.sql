@@ -5,3 +5,11 @@ CREATE TABLE IF NOT EXISTS assets (
   unit_value DOUBLE PRECISION NOT NULL
 );
 
+INSERT INTO assets (name, unit_value) VALUES
+  ('Bitcoin', 30.0),
+  ('Dolar', 5.15),
+  ('Ethereum', 20.0),
+  ('Euro', 5.93),
+  ('Cardano', 1.5),
+  ('Solana', 30.0),
+  ('Polkadot', 20.0);
